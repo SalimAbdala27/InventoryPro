@@ -49,6 +49,29 @@ const workflow = [
   'Export report or brochure',
 ];
 
+const productShots = [
+  {
+    title: 'Inspection dashboard',
+    position: 'top',
+  },
+  {
+    title: 'Room media capture',
+    position: 'center',
+  },
+  {
+    title: 'Export-ready records',
+    position: 'bottom',
+  },
+];
+
+function BrandLogo({ compact = false }) {
+  return (
+    <span className={compact ? 'brand-logo compact' : 'brand-logo'}>
+      <img src={`${process.env.PUBLIC_URL}/InventoryProHeader.png`} alt="InventoryPro" />
+    </span>
+  );
+}
+
 function App() {
   const year = new Date().getFullYear();
 
@@ -57,8 +80,7 @@ function App() {
       <section className="hero" id="top">
         <nav className="nav" aria-label="Main navigation">
           <a className="brand" href="#top" aria-label="InventoryPro home">
-            <span className="brand-mark">IP</span>
-            <span>InventoryPro</span>
+            <BrandLogo compact />
           </a>
           <div className="nav-links">
             <a href="#tutorial">Tutorial</a>
@@ -88,45 +110,17 @@ function App() {
             </div>
           </div>
 
-          <div className="product-preview" aria-label="InventoryPro app preview">
-            <div className="preview-toolbar">
-              <span></span>
-              <span></span>
-              <span></span>
+          <div className="product-preview" aria-label="InventoryPro app screenshot preview">
+            <div className="phone-frame">
+              <img
+                src={`${process.env.PUBLIC_URL}/IMG_8566.JPG`}
+                alt="InventoryPro property inspection workflow screenshot"
+              />
             </div>
-            <div className="preview-body">
-              <div className="preview-panel">
-                <div>
-                  <p className="panel-label">Inspection</p>
-                  <h2>14 Willow Mews</h2>
-                </div>
-                <div className="status-pill">Ready to export</div>
-              </div>
-              <div className="preview-layout">
-                <div className="room-list">
-                  <span className="active">Kitchen</span>
-                  <span>Reception</span>
-                  <span>Bedroom 1</span>
-                  <span>Bathroom</span>
-                </div>
-                <div className="report-card">
-                  <div className="floor-plan" aria-hidden="true">
-                    <span className="room room-a"></span>
-                    <span className="room room-b"></span>
-                    <span className="room room-c"></span>
-                  </div>
-                  <div className="media-strip" aria-hidden="true">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                  <div className="report-lines" aria-hidden="true">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
-              </div>
+            <div className="preview-callouts" aria-hidden="true">
+              <span>Subscription-enabled PDF exports</span>
+              <span>Room progress and media capture</span>
+              <span>Condition records and 360 photos</span>
             </div>
           </div>
         </div>
@@ -177,6 +171,26 @@ function App() {
           <span>Generate branded PDF reports</span>
           <span>Produce marketing brochures</span>
           <span>Manage subscription-gated exports</span>
+        </div>
+      </section>
+
+      <section className="section screenshots-section" aria-label="InventoryPro screenshots">
+        <div className="section-heading">
+          <p className="eyebrow">Inside the app</p>
+          <h2>A practical mobile workflow for live property inspections.</h2>
+        </div>
+        <div className="screenshot-grid">
+          {productShots.map((shot) => (
+            <figure className="screenshot-card" key={shot.title}>
+              <div className={`screenshot-crop ${shot.position}`}>
+                <img
+                  src={`${process.env.PUBLIC_URL}/IMG_8566.JPG`}
+                  alt={`${shot.title} screenshot`}
+                />
+              </div>
+              <figcaption>{shot.title}</figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 
@@ -236,8 +250,7 @@ function App() {
       <footer className="footer">
         <div>
           <a className="brand" href="#top" aria-label="InventoryPro home">
-            <span className="brand-mark">IP</span>
-            <span>InventoryPro</span>
+            <BrandLogo compact />
           </a>
           <p>Property reports, media, floor plans, and branded exports in one professional workflow.</p>
         </div>
