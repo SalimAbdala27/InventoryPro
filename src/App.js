@@ -49,6 +49,8 @@ const workflow = [
   'Export report or brochure',
 ];
 
+const appUrl = 'https://app.inventorypro.uk';
+
 const productShots = [
   {
     title: 'Inspection dashboard',
@@ -87,7 +89,7 @@ function App() {
             <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
           </div>
-          <a className="nav-cta" href="/login">Try the app</a>
+          <a className="nav-cta" href={appUrl}>Try the app</a>
         </nav>
 
         <div className="hero-grid">
@@ -99,7 +101,7 @@ function App() {
               capture inspections, organise media, and export client-ready property documents faster.
             </p>
             <div className="hero-actions" aria-label="Primary actions">
-              <a className="button primary" href="/login">Start now</a>
+              <a className="button primary" href={appUrl}>Start now</a>
               <a className="button secondary" href="#tutorial">Watch tutorial</a>
             </div>
             <div className="proof-row" aria-label="Key product outputs">
@@ -238,13 +240,14 @@ function App() {
 
       <section className="section cta-section" id="pricing">
         <div>
-          <p className="eyebrow">Simple start</p>
-          <h2>Start with the core workflow, then unlock exports when your reports are ready.</h2>
+          <p className="eyebrow">Simple pricing</p>
+          <h2>InventoryPro is £30 per month, about £1 a day for professional property reports.</h2>
           <p>
-            Keep pricing simple on the landing page and point active users towards the app, subscription, or login route.
+            One straightforward monthly fee gives property professionals the tools to capture inspections,
+            organise media, and produce branded exports.
           </p>
         </div>
-        <a className="button primary" href="/login">Try the app</a>
+        <a className="button primary" href={appUrl}>Try the app</a>
       </section>
 
       <footer className="footer">
@@ -255,7 +258,7 @@ function App() {
           <p>Property reports, media, floor plans, and branded exports in one professional workflow.</p>
         </div>
         <div className="footer-links">
-          <a href="/login">App</a>
+          <a href={appUrl}>App</a>
           <a href="/privacy">Privacy</a>
           <a href="/terms">Terms</a>
           <a href="mailto:hello@inventorypro.app">Contact</a>
